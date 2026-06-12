@@ -2238,5 +2238,49 @@
     });
   </script>
 
+  <!-- BOTÃO VOLTAR AO TOPO -->
+  <a href="#hero" class="btn-topo" id="btnTopo" title="Voltar ao topo" aria-label="Voltar ao topo">
+    <iconify-icon icon="solar:arrow-up-outline"></iconify-icon>
+  </a>
+
+  <style>
+    .btn-topo {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 20px rgba(107,26,42,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms, transform 300ms, box-shadow 200ms;
+      transform: translateY(8px);
+    }
+    .btn-topo.visivel {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .btn-topo:hover {
+      background: #8a2236;
+      box-shadow: 0 8px 28px rgba(107,26,42,0.45);
+    }
+  </style>
+
+  <script>
+    const btnTopo = document.getElementById('btnTopo');
+    window.addEventListener('scroll', () => {
+      btnTopo.classList.toggle('visivel', window.scrollY > 400);
+    });
+  </script>
+
 </body>
 </html>
