@@ -110,15 +110,18 @@
     ═══════════════════════════════════════════ */
     .heading-hero {
       font-family: var(--font-heading);
-      font-size: clamp(28px, 3vw, 52px);
+      font-size: var(--text-hero);
       font-weight: 700;
       font-style: normal;
       line-height: 1.1;
       letter-spacing: -0.01em;
       color: var(--text-light);
-      max-width: 22ch;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 100%;
+      width: 100%;
+      white-space: nowrap;
+    }
+    @media (max-width: 900px) {
+      .heading-hero { white-space: normal; font-size: clamp(22px, 5vw, 36px); }
     }
     .heading-section {
       font-family: var(--font-heading);
