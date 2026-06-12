@@ -882,6 +882,35 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .depoimento-card__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(184,146,74,0.3);
+      background: rgba(245,237,228,0.08);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .depoimento-card__avatar-placeholder {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px dashed rgba(184,146,74,0.4);
+      background: rgba(245,237,228,0.05);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: rgba(184,146,74,0.4);
     }
     .depoimento-placeholder {
       font-family: var(--font-heading);
