@@ -968,8 +968,7 @@
     .galeria__titulo { color: var(--text-dark); }
     .galeria__grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: auto auto;
+      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
     }
     .galeria__item {
@@ -1909,65 +1908,24 @@
 
       <div class="galeria__grid">
 
-        <!-- Grande vertical (row span 2) -->
-        <div class="galeria__item galeria__item--grande reveal">
-          <img src="images/detalhe-decoracao.png" alt="Detalhe de decoração artesanal em bolo da Delicê — flores de açúcar e dourado feitos à mão" loading="lazy" decoding="async" onload="this.nextElementSibling.style.display='none'" style="position:relative;z-index:2;">
-          <div class="galeria__placeholder" style="position:absolute;inset:0;z-index:1;">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="14" cy="14" r="12" stroke="#9A7A7A" stroke-width="1.5" fill="none"/>
-              <path d="M14 6L14.9 9.8L18.5 10L16.4 12.5L17.5 16L14 14L10.5 16L11.6 12.5L9.5 10L13.1 9.8L14 6Z" fill="#9A7A7A" opacity="0.4"/>
-            </svg>
-            <span>detalhe-decoracao.png</span>
-          </div>
-          <div class="galeria__hover" aria-hidden="true">
-            <iconify-icon icon="solar:magnifer-outline"></iconify-icon>
-          </div>
+        <div class="galeria__item reveal" style="aspect-ratio:1/1;">
+          <img src="images/detalhe-decoracao.png" alt="Detalhe de decoração artesanal em bolo da Delicê" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+          <div class="galeria__hover" aria-hidden="true"><iconify-icon icon="solar:magnifer-outline"></iconify-icon></div>
         </div>
 
-        <!-- Quadrada sup-dir -->
-        <div class="galeria__item galeria__item--quadrado reveal reveal-delay-1">
-          <img src="images/detalhe-corte.png" alt="Corte de bolo Delicê mostrando camadas de recheio artesanal" loading="lazy" decoding="async" onload="this.nextElementSibling.style.display='none'" style="position:relative;z-index:2;">
-          <div class="galeria__placeholder" style="position:absolute;inset:0;z-index:1;">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="4" y="8" width="20" height="14" rx="2" stroke="#9A7A7A" stroke-width="1.5" fill="none"/>
-              <path d="M4 12H24" stroke="#9A7A7A" stroke-width="1" stroke-dasharray="2 2"/>
-              <path d="M4 16H24" stroke="#9A7A7A" stroke-width="1" stroke-dasharray="2 2"/>
-            </svg>
-            <span>detalhe-corte.png</span>
-          </div>
-          <div class="galeria__hover" aria-hidden="true">
-            <iconify-icon icon="solar:magnifer-outline"></iconify-icon>
-          </div>
+        <div class="galeria__item reveal reveal-delay-1" style="aspect-ratio:1/1;">
+          <img src="images/detalhe-corte.png" alt="Corte de bolo Delicê mostrando camadas de recheio artesanal" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+          <div class="galeria__hover" aria-hidden="true"><iconify-icon icon="solar:magnifer-outline"></iconify-icon></div>
         </div>
 
-        <!-- Wide inf-dir col 3 -->
-        <div class="galeria__item reveal reveal-delay-1" style="aspect-ratio:16/9; overflow:hidden; border-radius:12px;">
-          <img src="images/ambiente-mesa.png" alt="Mesa de evento com bolo e doces artesanais da Delicê Confeitaria" loading="lazy" decoding="async" onload="this.nextElementSibling.style.display='none'" style="position:relative;z-index:2;width:100%;height:100%;object-fit:cover;">
-          <div class="galeria__placeholder" style="position:absolute;inset:0;z-index:1;aspect-ratio:16/9; min-height:unset;">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="3" y="7" width="22" height="14" rx="2" stroke="#9A7A7A" stroke-width="1.5" fill="none"/>
-              <path d="M3 21H25" stroke="#9A7A7A" stroke-width="1.5"/>
-            </svg>
-            <span>ambiente-mesa.png</span>
-          </div>
-          <div class="galeria__hover" aria-hidden="true">
-            <iconify-icon icon="solar:magnifer-outline"></iconify-icon>
-          </div>
+        <div class="galeria__item reveal reveal-delay-2" style="aspect-ratio:1/1;">
+          <img src="images/ambiente-mesa.png" alt="Mesa de evento com bolo e doces artesanais da Delicê" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+          <div class="galeria__hover" aria-hidden="true"><iconify-icon icon="solar:magnifer-outline"></iconify-icon></div>
         </div>
 
-        <!-- Horizontal base (span 2 cols) -->
-        <div class="galeria__item galeria__item--wide reveal reveal-delay-2">
-          <img src="images/bastidores-maos.png" alt="Mãos de Byanca decorando bolo artesanal — bastidores da Delicê Confeitaria" loading="lazy" decoding="async" onload="this.nextElementSibling.style.display='none'" style="position:relative;z-index:2;width:100%;height:100%;object-fit:cover;">
-          <div class="galeria__placeholder" style="position:absolute;inset:0;z-index:1;aspect-ratio:16/9; min-height:unset;">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M8 20C8 20 10 14 14 12C18 10 20 8 20 8" stroke="#9A7A7A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-              <path d="M6 22C6 22 8 16 12 14" stroke="#9A7A7A" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
-            </svg>
-            <span>bastidores-maos.png</span>
-          </div>
-          <div class="galeria__hover" aria-hidden="true">
-            <iconify-icon icon="solar:magnifer-outline"></iconify-icon>
-          </div>
+        <div class="galeria__item reveal reveal-delay-3" style="aspect-ratio:1/1;">
+          <img src="images/bastidores-maos.png" alt="Bastidores da Delicê Confeitaria" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
+          <div class="galeria__hover" aria-hidden="true"><iconify-icon icon="solar:magnifer-outline"></iconify-icon></div>
         </div>
 
       </div>
