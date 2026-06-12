@@ -2225,6 +2225,10 @@
     window.addEventListener('scroll', () => {
       btnTopo.classList.toggle('visivel', window.scrollY > 400);
     });
+    btnTopo.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   </script>
 
 </body>
