@@ -14,6 +14,33 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ── BOTÃO FLUTUANTE VOLTAR ─── */
+    .btn-voltar {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      z-index: 200;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--burgundy, #6B1A2A);
+      color: #F5EDE4;
+      font-family: 'Cormorant SC', Georgia, serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(107,26,42,0.35);
+      transition: transform 200ms, box-shadow 200ms, background 200ms;
+    }
+    .btn-voltar:hover {
+      background: #8a2236;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(107,26,42,0.45);
+    }
+    .btn-voltar iconify-icon { font-size: 16px; }
+
     :root {
       --burgundy:  #6B1A2A;
       --gold:      #B8924A;
@@ -508,6 +535,12 @@
 </head>
 <body>
 
+  <!-- BOTÃO FLUTUANTE VOLTAR AO SITE -->
+  <a href="index.html" class="btn-voltar" title="Voltar ao site">
+    <iconify-icon icon="solar:arrow-left-outline"></iconify-icon>
+    Voltar ao site
+  </a>
+
   <!-- TOPBAR -->
   <div class="topbar">
     <span>✦ Encomendas abertas · Barra Mansa, RJ</span>
@@ -517,7 +550,7 @@
   <!-- HEADER -->
   <header class="header">
     <div class="container">
-      <a href="/site-delice-2/index.html" class="header__back">
+      <a href="index.html" class="header__back">
         <iconify-icon icon="solar:arrow-left-outline"></iconify-icon>
         Voltar ao site
       </a>
@@ -552,7 +585,7 @@
 
           <!-- Imagem -->
           <div class="secao__foto">
-            <img class="secao__img" src="/site-delice-2/images/cardapio-bolos.jpg" alt="Bolo artístico Delicê" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;object-position:center;">
+            <img class="secao__img" src="images/cardapio-bolos.png" alt="Bolo artístico Delicê" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;object-position:center;">
           </div>
 
           <!-- Conteúdo -->
@@ -624,7 +657,7 @@
       <div class="container">
         <div class="secao__layout">
           <div class="secao__foto">
-            <!-- <img class="secao__img" src="/site-delice-2/images/cardapio-tortas.jpg" alt="Tortas artesanais Delicê"> -->
+            <!-- <img class="secao__img" src="images/cardapio-tortas.jpg" alt="Tortas artesanais Delicê"> -->
             <div class="secao__placeholder">
               <iconify-icon icon="solar:gallery-minimalistic-outline" style="font-size:32px;"></iconify-icon>
               <span>cardapio-tortas.jpg</span>
@@ -661,7 +694,7 @@
       <div class="container">
         <div class="secao__layout">
           <div class="secao__foto">
-            <img class="secao__img" src="/site-delice-2/images/cardapio-doces.jpg" alt="Doces e bombons artesanais Delicê" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;object-position:center;">
+            <img class="secao__img" src="images/cardapio-doces.png" alt="Doces e bombons artesanais Delicê" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;object-position:center;">
           </div>
           <div>
             <div class="secao__topo">
@@ -705,7 +738,7 @@
       <div class="container">
         <div class="secao__layout">
           <div class="secao__foto">
-            <img class="secao__img" src="/site-delice-2/images/cardapio-sobremesas.jpg" alt="Sobremesas na taça Delicê" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;object-position:center;">
+            <img class="secao__img" src="images/cardapio-sobremesas.png" alt="Sobremesas na taça Delicê" loading="lazy" style="aspect-ratio:4/5;object-fit:cover;object-position:center;">
           </div>
           <div>
             <div class="secao__topo">
@@ -828,7 +861,7 @@
       <div class="container">
         <div class="secao__layout">
           <div class="secao__foto">
-            <!-- <img class="secao__img" src="/site-delice-2/images/cardapio-servicos.jpg" alt="Serviços e eventos Delicê"> -->
+            <!-- <img class="secao__img" src="images/cardapio-servicos.jpg" alt="Serviços e eventos Delicê"> -->
             <div class="secao__placeholder">
               <iconify-icon icon="solar:gallery-minimalistic-outline" style="font-size:32px;"></iconify-icon>
               <span>cardapio-servicos.jpg</span>
@@ -894,7 +927,7 @@
           <a href="#doces">Doces & Bombons</a>
           <a href="#sobremesas">Sobremesas na Taça</a>
           <a href="#servicos">Serviços & Eventos</a>
-          <a href="/site-delice-2/index.html">← Voltar ao site</a>
+          <a href="index.html">← Voltar ao site</a>
         </nav>
 
         <!-- Social -->
