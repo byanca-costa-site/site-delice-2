@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delicê Confeitaria Gourmet — Byanca Costa · Barra Mansa, RJ</title>
+  <meta name="description" content="Confeitaria artesanal em Barra Mansa, RJ. Bolos artísticos personalizados para os momentos que merecem ser lembrados. Encomende com Byanca Costa.">
+  <link rel="icon" type="image/png" href="images/logo-delice.png">
+  <link rel="apple-touch-icon" href="images/logo-delice.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════
+       TOKENS GLOBAIS
+    ═══════════════════════════════════════════ */
+    :root {
+      --cream:       #F5EDE4;
+      --burgundy:    #6B1A2A;
+      --marsala:     #8B2942;
+      --gold:        #B8924A;
+      --gold-light:  #D4AA6A;
+      --surface:     #FAF3EE;
+      --text-dark:   #3A1A20;
+      --text-light:  #F5EDE4;
+      --text-muted:  #9A7A7A;
+
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-caps:    'Cormorant SC', Georgia, serif;
+      --font-body:    'Cormorant Garamond', Georgia, serif;
+
+      --text-hero:    clamp(36px, 4.8vw, 68px);
+      --text-h2:      clamp(34px, 4.5vw, 56px);
+      --text-h3:      clamp(19px, 2vw, 26px);
+      --text-body:    clamp(15px, 1.2vw, 17px);
+      --text-label:   13px;
+      --text-micro:   11px;
+
+      --container:    1160px;
+      --padding-x:    clamp(20px, 4vw, 48px);
+      --section-pt:   clamp(60px, 8vw, 120px);
+      --section-pb:   clamp(50px, 6vw, 100px);
+      --gap-card:     24px;
+
+      --radius-card:  16px;
+      --radius-pill:  50px;
+      --radius-sm:    8px;
+      --shadow-card:  0 4px 24px rgba(107, 26, 42, 0.08);
+      --shadow-hover: 0 8px 40px rgba(107, 26, 42, 0.16);
+
+      --ease-smooth:  cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-elegant: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESET + BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      color: var(--text-dark);
+      background-color: var(--cream);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+
+    /* ═══════════════════════════════════════════
+       LAYOUT
+    ═══════════════════════════════════════════ */
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--padding-x);
+    }
+    .container--narrow { max-width: 760px; }
+    .container--xs { max-width: 640px; }
+    .container--faq { max-width: 720px; }
+
+    .section {
+      padding-top: var(--section-pt);
+      padding-bottom: var(--section-pb);
+    }
+    .section--cream   { background-color: var(--cream); }
+    .section--dark    { background-color: var(--burgundy); position: relative; overflow: hidden; }
+    .section--dark::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      animation: grain 8s steps(10) infinite;
+    }
+
+    /* ═══════════════════════════════════════════
+       TIPOGRAFIA
+    ═══════════════════════════════════════════ */
+    .heading-hero {
+      font-family: var(--font-heading);
+      font-size: var(--text-hero);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--text-light);
+    }
+    .heading-section {
+      font-family: var(--font-heading);
+      font-size: var(--text-h2);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.1;
+    }
+    .label-caps {
+      font-family: var(--font-caps);
+      font-size: var(--text-label);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .body-text {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      font-weight: 400;
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════════════
+       COMPONENTES
+    ═══════════════════════════════════════════ */
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      font-family: var(--font-caps);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 50px;
+      padding: 4px 14px;
+    }
+    .badge--on-dark {
+      color: var(--text-light);
+      border-color: rgba(245, 237, 228, 0.5);
+    }
+
+    /* Botões */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--gold);
+      color: var(--cream);
+      font-family: var(--font-caps);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: background 200ms var(--ease-smooth),
+                  transform 200ms var(--ease-smooth),
+                  box-shadow 200ms var(--ease-smooth);
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background-color: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184, 146, 74, 0.35);
+    }
+    .btn-primary--lg {
+      padding: 18px 48px;
+      font-size: 15px;
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--gold);
+      font-family: var(--font-caps);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 13px 31px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--gold);
+      cursor: pointer;
+      transition: all 200ms var(--ease-smooth);
+      text-decoration: none;
+    }
+    .btn-ghost:hover { background-color: var(--gold); color: var(--cream); }
+    .btn-ghost--light { color: var(--cream); border-color: rgba(245,237,228,0.7); }
+    .btn-ghost--light:hover { background-color: var(--cream); color: var(--burgundy); }
+
+    /* Divisória ornamental */
+    .divider-ornamental {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 0 auto 40px;
+      max-width: 260px;
+    }
+    .divider-ornamental::before,
+    .divider-ornamental::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* Card produto */
+    .card-produto {
+      background-color: var(--surface);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 400ms var(--ease-elegant),
+                  box-shadow 400ms var(--ease-elegant);
+    }
+    .card-produto:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-produto__image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .card-produto__placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #e8ddd6 0%, #d4c5bb 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .card-produto__placeholder span {
+      font-family: var(--font-caps);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 0 12px;
+    }
+    .card-produto__body { padding: 20px 24px 28px; }
+    .card-produto__label { color: var(--gold); margin-bottom: 8px; }
+    .card-produto__nome {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+    .card-produto__nota {
+      margin-top: 6px;
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 12px;
+      color: var(--text-muted);
+      opacity: 0.7;
+    }
+    .card-produto__tags {
+      margin-top: 12px;
+      font-family: var(--font-caps);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--burgundy);
+      opacity: 0.75;
+      border-top: 1px solid rgba(107,26,42,0.12);
+      padding-top: 10px;
+    }
+    .card-produto__descricao {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--gap-card);
+    }
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--gap-card);
+    }
+    @media (max-width: 640px) {
+      .grid-2x2 { grid-template-columns: 1fr; }
+    }
+    .grid-2-auto {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    /* ═══════════════════════════════════════════
+       ANIMAÇÕES
+    ═══════════════════════════════════════════ */
+    @keyframes grain {
+      0%, 100% { transform: translate(0, 0); }
+      10%       { transform: translate(-2%, -3%); }
+      30%       { transform: translate(3%, -1%); }
+      50%       { transform: translate(-1%, 2%); }
+      70%       { transform: translate(2%, 3%); }
+      90%       { transform: translate(-3%, 1%); }
+    }
+    @keyframes float-ornamento {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33%       { transform: translateY(-12px) rotate(5deg); }
+      66%       { transform: translateY(-6px) rotate(-3deg); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slide-in-left {
+      from { opacity: 0; transform: translateX(-24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slide-in-right {
+      from { opacity: 0; transform: translateX(24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes pulse-cta {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+    @keyframes line-expand {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms var(--ease-elegant),
+                  transform 700ms var(--ease-elegant);
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity 700ms var(--ease-elegant), transform 700ms var(--ease-elegant); }
+    .reveal-left.is-visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(24px); transition: opacity 700ms var(--ease-elegant), transform 700ms var(--ease-elegant); }
+    .reveal-right.is-visible { opacity: 1; transform: translateX(0); }
+    .reveal-delay-1 { transition-delay: 150ms; }
+    .reveal-delay-2 { transition-delay: 300ms; }
+    .reveal-delay-3 { transition-delay: 450ms; }
+
+    .ornamento {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.15;
+      animation: float-ornamento 6s ease-in-out infinite;
+      color: var(--gold);
+    }
+
+    .shimmer-gold {
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* ═══════════════════════════════════════════
+       TOPBAR
+    ═══════════════════════════════════════════ */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background-color: var(--burgundy);
+      padding: 10px var(--padding-x);
+      text-align: center;
+      font-family: var(--font-caps);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .topbar a {
+      color: var(--gold);
+      margin-left: 16px;
+      transition: opacity 200ms;
+    }
+    .topbar a:hover { opacity: 0.8; text-decoration: underline; }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 92px; /* topbar 40px + navbar 52px */
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(107,26,42,0.45) 0%, rgba(107,26,42,0.65) 100%);
+      background-color: #3A1A20;
+    }
+    .hero__bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero__bg-placeholder {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #3A1A20 0%, #6B1A2A 40%, #4A1520 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero__bg-placeholder span {
+      font-family: var(--font-caps);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: rgba(245,237,228,0.3);
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(107,26,42,0.45) 0%, rgba(107,26,42,0.65) 100%);
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 60px var(--padding-x);
+      max-width: 760px;
+      animation: fade-in-up 800ms var(--ease-elegant) both;
+    }
+    .hero__logo { margin-bottom: 24px; display: flex; justify-content: center; align-items: center; }
+    .hero__logo img { display: block; margin: 0 auto; border-radius: 50%; box-shadow: 0 4px 32px rgba(0,0,0,0.25); }
+    .hero__badge { margin-bottom: 28px; }
+    .hero__title {
+      margin-bottom: 24px;
+    }
+    .hero__subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(15px, 1.4vw, 18px);
+      font-weight: 400;
+      line-height: 1.75;
+      color: rgba(245,237,228,0.88);
+      max-width: 540px;
+      margin: 0 auto 40px;
+    }
+    .hero__ctas { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .hero__ornamento-tr { top: 15%; right: 8%; width: 64px; height: 64px; }
+    .hero__ornamento-bl { bottom: 20%; left: 6%; width: 48px; height: 48px; animation-delay: -2s; }
+
+    /* ═══════════════════════════════════════════
+       TENSÃO
+    ═══════════════════════════════════════════ */
+    .tensao { text-align: center; }
+    .tensao__headline {
+      font-family: var(--font-heading);
+      font-size: clamp(26px, 3.5vw, 48px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.2;
+      color: var(--text-light);
+      max-width: 760px;
+      margin: 0 auto 32px;
+    }
+    .tensao__virada {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 3vw, 40px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold-light);
+      margin-bottom: 40px;
+    }
+    .tensao__label { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════
+       SOBRE BYANCA
+    ═══════════════════════════════════════════ */
+    .sobre { background-color: var(--cream); }
+    .sobre__grid {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .sobre__foto-wrap {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      aspect-ratio: 4/5;
+    }
+    .sobre__foto-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.82) contrast(1.05);
+    }
+    /* Overlays para foto de estúdio */
+    .sobre__foto-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .sobre__foto-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 55%, rgba(107,26,42,0.25) 100%);
+    }
+    .sobre__foto-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(245,237,228,0.08) 0%, transparent 15%);
+    }
+    /* Nome sobre a foto */
+    .sobre__nome-foto {
+      position: absolute;
+      bottom: 88px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: var(--font-caps);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      color: rgba(245,237,228,0.75);
+      pointer-events: none;
+    }
+    /* Badge "+5 anos de paixão" */
+    .sobre__badge-anos {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(107,26,42,0.45);
+      z-index: 2;
+    }
+    .sobre__badge-num {
+      font-family: var(--font-heading);
+      font-size: 30px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .sobre__badge-texto {
+      font-family: var(--font-caps);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      color: rgba(245,237,228,0.75);
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+    .sobre__badge { margin-bottom: 16px; }
+    .sobre__nome {
+      color: var(--text-dark);
+      margin-bottom: 24px;
+    }
+    .sobre__bio {
+      color: var(--text-dark);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .sobre__bio p + p { margin-top: 16px; }
+    .sobre__destaque {
+      font-family: var(--font-heading);
+      font-size: clamp(18px, 1.8vw, 22px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+      margin-bottom: 32px;
+      line-height: 1.4;
+    }
+
+    /* ═══════════════════════════════════════════
+       DIFERENCIAIS
+    ═══════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════
+       TRAJETÓRIA
+    ═══════════════════════════════════════════ */
+    .trajetoria { background: var(--cream); }
+    .trajetoria__header { text-align: center; margin-bottom: 56px; }
+    .trajetoria__titulo { color: var(--text-dark); margin-top: 12px; margin-bottom: 12px; }
+    .trajetoria__subtitulo {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(15px, 1.5vw, 17px);
+      color: var(--text-muted);
+    }
+    .trajetoria__linha {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-left: 0;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .trajetoria__item {
+      display: grid;
+      grid-template-columns: 80px 1px 1fr;
+      gap: 0 28px;
+      align-items: stretch;
+      position: relative;
+    }
+    /* Coluna do ano */
+    .trajetoria__ano {
+      text-align: right;
+      padding-top: 4px;
+      padding-right: 0;
+      font-family: var(--font-caps);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      position: relative;
+      align-self: start;
+      padding-top: 6px;
+    }
+    /* Linha vertical central */
+    .trajetoria__linha-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .trajetoria__dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--cream);
+      box-shadow: 0 0 0 1px var(--gold);
+      flex-shrink: 0;
+      margin-top: 4px;
+      z-index: 1;
+    }
+    .trajetoria__fio {
+      width: 1px;
+      flex: 1;
+      background: linear-gradient(to bottom, var(--gold), rgba(184,146,74,0.15));
+      min-height: 40px;
+    }
+    .trajetoria__item:last-child .trajetoria__fio { display: none; }
+    .trajetoria__conteudo {
+      padding: 0 0 48px 0;
+    }
+    .trajetoria__item:last-child .trajetoria__conteudo { padding-bottom: 0; }
+    .trajetoria__label {
+      font-family: var(--font-caps);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 6px;
+      padding-top: 2px;
+    }
+    .trajetoria__nome {
+      font-family: var(--font-heading);
+      font-size: clamp(20px, 2vw, 26px);
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+    .trajetoria__texto {
+      font-family: var(--font-body);
+      font-size: clamp(15px, 1.3vw, 17px);
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .trajetoria__quote {
+      margin-top: 20px;
+      padding: 16px 20px;
+      border-left: 2px solid var(--gold);
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(16px, 1.5vw, 18px);
+      color: var(--text-dark);
+      line-height: 1.6;
+      background: rgba(184,146,74,0.05);
+      border-radius: 0 8px 8px 0;
+    }
+    @media (max-width: 600px) {
+      .trajetoria__item { grid-template-columns: 52px 1px 1fr; gap: 0 16px; }
+      .trajetoria__ano { font-size: 10px; }
+    }
+
+    .diferenciais { text-align: center; }
+    .diferenciais__titulo { color: var(--text-light); margin-bottom: 64px; }
+    .diferenciais__item { padding: 0 16px; }
+    .diferenciais__icon {
+      display: block;
+      margin: 0 auto 20px;
+      color: var(--gold);
+      font-size: 36px;
+    }
+    .diferenciais__nome {
+      font-family: var(--font-caps);
+      font-size: var(--text-h3);
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .diferenciais__desc {
+      font-size: 15px;
+      color: rgba(245,237,228,0.7);
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       CATÁLOGO
+    ═══════════════════════════════════════════ */
+    .catalogo { background-color: var(--cream); text-align: center; }
+    .catalogo__header { margin-bottom: 56px; }
+    .catalogo__badge { margin-bottom: 16px; }
+    .catalogo__titulo { color: var(--text-dark); }
+    .catalogo__cta { margin-top: 48px; }
+
+    /* ═══════════════════════════════════════════
+       DEPOIMENTOS
+    ═══════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════
+       PERSONALIZAÇÃO
+    ═══════════════════════════════════════════ */
+    .personalizacao { background: var(--cream); text-align: center; }
+    .personalizacao__header { margin-bottom: 48px; }
+    .personalizacao__titulo { color: var(--text-dark); margin-top: 12px; margin-bottom: 16px; }
+    .personalizacao__subtitulo {
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .personalizacao__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .personalizacao__item {
+      background: #fff;
+      border: 1px solid rgba(107,26,42,0.08);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 300ms, box-shadow 300ms;
+    }
+    .personalizacao__item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(107,26,42,0.08);
+    }
+    .personalizacao__icone {
+      width: 52px; height: 52px;
+      background: rgba(107,26,42,0.06);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      color: var(--burgundy);
+      font-size: 24px;
+    }
+    .personalizacao__nome {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .personalizacao__desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .personalizacao__nota {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--text-muted);
+      opacity: 0.7;
+      margin-bottom: 32px;
+    }
+    .personalizacao__cta { margin-top: 8px; }
+    @media (max-width: 900px) {
+      .personalizacao__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .personalizacao__grid { grid-template-columns: 1fr; }
+    }
+
+    .depoimentos { text-align: center; }
+    .depoimentos__badge { margin-bottom: 16px; }
+    .depoimentos__titulo { color: var(--text-light); margin-bottom: 48px; }
+    .depoimento-card {
+      background: rgba(245,237,228,0.06);
+      border: 1px solid rgba(184,146,74,0.2);
+      border-radius: 12px;
+      padding: 32px 36px;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .depoimento-card:last-child { margin-bottom: 0; }
+    .depoimento-card__aspas {
+      display: block;
+      font-size: 56px;
+      line-height: 0.7;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    .depoimento-card__texto {
+      font-family: var(--font-heading);
+      font-size: clamp(15px, 1.4vw, 18px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .depoimento-card__autora {
+      font-family: var(--font-caps);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+    .depoimento-placeholder {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(245,237,228,0.3);
+      text-align: center;
+      padding: 40px;
+      border: 1px dashed rgba(184,146,74,0.2);
+      border-radius: 12px;
+    }
+
+    /* ═══════════════════════════════════════════
+       PROCESSO
+    ═══════════════════════════════════════════ */
+    .processo { background-color: var(--cream); text-align: center; }
+    .processo__header { margin-bottom: 64px; }
+    .processo__badge { margin-bottom: 16px; }
+    .processo__titulo { color: var(--text-dark); }
+    .processo__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+    .processo__grid::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: calc(16.66% + 16px);
+      right: calc(16.66% + 16px);
+      height: 1px;
+      background: rgba(184,146,74,0.35);
+    }
+    .processo__passo { position: relative; }
+    .processo__num {
+      font-family: var(--font-heading);
+      font-size: 72px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.18;
+      line-height: 1;
+      margin-bottom: -16px;
+    }
+    .processo__icon { display: block; margin: 0 auto 16px; color: var(--gold); font-size: 32px; }
+    .processo__nome {
+      font-family: var(--font-caps);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .processo__desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .processo__link {
+      font-family: var(--font-caps);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 200ms;
+    }
+    .processo__link:hover { opacity: 0.7; }
+
+    /* ═══════════════════════════════════════════
+       GALERIA
+    ═══════════════════════════════════════════ */
+    .galeria { background-color: var(--cream); text-align: center; }
+    .galeria__header { margin-bottom: 48px; }
+    .galeria__titulo { color: var(--text-dark); }
+    .galeria__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .galeria__item {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .galeria__item:hover .galeria__hover { opacity: 1; }
+    .galeria__item:hover img, .galeria__item:hover .galeria__placeholder { transform: scale(1.03); }
+    .galeria__item--grande { grid-row: 1 / 3; }
+    .galeria__item img, .galeria__placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 400ms var(--ease-elegant);
+      display: block;
+    }
+    .galeria__item--grande img, .galeria__item--grande .galeria__placeholder { min-height: 480px; }
+    .galeria__item--quadrado img, .galeria__item--quadrado .galeria__placeholder { aspect-ratio: 1/1; min-height: 200px; }
+    .galeria__item--wide { grid-column: 2 / 4; }
+    .galeria__item--wide img, .galeria__item--wide .galeria__placeholder { aspect-ratio: 16/9; }
+    .galeria__placeholder {
+      background: linear-gradient(135deg, #e0d0c5 0%, #ccbaae 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 200px;
+    }
+    .galeria__placeholder span {
+      font-family: var(--font-caps);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+    .galeria__hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(184,146,74,0.18);
+      opacity: 0;
+      transition: opacity 400ms var(--ease-elegant);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .galeria__hover iconify-icon { color: white; font-size: 32px; }
+
+    /* ═══════════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════════ */
+    .faq { text-align: center; }
+    .faq__badge { margin-bottom: 16px; }
+    .faq__titulo { color: var(--text-light); margin-bottom: 56px; }
+    .faq__lista { text-align: left; }
+    .faq__item { border-bottom: 1px solid rgba(184,146,74,0.3); }
+    .faq__pergunta {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: clamp(15px, 1.2vw, 17px);
+      font-weight: 400;
+      color: var(--text-light);
+      text-align: left;
+    }
+    .faq__pergunta iconify-icon {
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 20px;
+      transition: transform 300ms var(--ease-smooth);
+    }
+    .faq__item.is-open .faq__pergunta iconify-icon { transform: rotate(180deg); }
+    .faq__resposta {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 350ms var(--ease-smooth), opacity 350ms var(--ease-smooth);
+      opacity: 0;
+    }
+    .faq__item.is-open .faq__resposta { max-height: 300px; opacity: 1; }
+    .faq__resposta-inner {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: rgba(245,237,228,0.75);
+      line-height: 1.75;
+      padding-bottom: 24px;
+    }
+
+    /* ═══════════════════════════════════════════
+       CTA FINAL
+    ═══════════════════════════════════════════ */
+    .cta-final {
+      background: linear-gradient(to bottom, var(--cream) 60%, rgba(184,146,74,0.06) 100%);
+      text-align: center;
+    }
+    .cta-final__ornamento {
+      display: block;
+      margin: 0 auto 32px;
+      color: var(--gold);
+      opacity: 0.65;
+    }
+    .cta-final__titulo { color: var(--text-dark); margin-bottom: 24px; }
+    .cta-final__body {
+      font-size: clamp(15px, 1.3vw, 17px);
+      color: rgba(58,26,32,0.72);
+      line-height: 1.75;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+    .cta-final__micro {
+      font-family: var(--font-caps);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    .footer {
+      background-color: var(--burgundy);
+      position: relative;
+      overflow: hidden;
+      padding: 56px 0 40px;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer__marca { }
+    .footer__nome {
+      font-family: var(--font-caps);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    .footer__subtitulo {
+      font-family: var(--font-caps);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(245,237,228,0.5);
+    }
+    .footer__nav-titulo {
+      font-family: var(--font-caps);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(245,237,228,0.5);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .footer__nav a {
+      display: block;
+      font-family: var(--font-caps);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: rgba(245,237,228,0.65);
+      padding: 6px 0;
+      transition: color 200ms;
+    }
+    .footer__nav a:hover { color: var(--gold); }
+    .footer__social { display: flex; flex-direction: column; gap: 14px; }
+    .footer__social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      font-family: var(--font-caps);
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      transition: opacity 200ms;
+      text-decoration: none;
+    }
+    .footer__social-link iconify-icon { font-size: 20px; flex-shrink: 0; }
+    .footer__social-link:hover { opacity: 0.7; }
+    .footer__divider {
+      height: 1px;
+      background: rgba(245,237,228,0.12);
+      margin-bottom: 24px;
+    }
+    .footer__servicos {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(13px, 1.2vw, 15px);
+      color: rgba(245,237,228,0.5);
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+    .footer__servicos a {
+      color: var(--gold);
+      opacity: 0.85;
+      text-decoration: none;
+      transition: opacity 200ms;
+    }
+    .footer__servicos a:hover { opacity: 1; }
+    .footer__copy {
+      font-family: var(--font-caps);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: rgba(245,237,228,0.4);
+      text-align: center;
+    }
+
+    /* ═══════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════ */
+    .navbar {
+      position: fixed;
+      top: 40px; /* abaixo da topbar */
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: rgba(107, 26, 42, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184,146,74,0.2);
+      padding: 0 var(--padding-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      transition: background 300ms;
+    }
+    .navbar__logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+      border-radius: 50%;
+    }
+    .navbar__links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .navbar__links a {
+      font-family: var(--font-caps);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(245,237,228,0.75);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 200ms;
+    }
+    .navbar__links a:hover { color: var(--gold); }
+    .navbar__cta {
+      font-family: var(--font-caps);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--gold);
+      border-radius: 50px;
+      padding: 7px 18px;
+      text-decoration: none;
+      transition: background 200ms;
+    }
+    .navbar__cta:hover { background: var(--gold-light); }
+
+    /* Hamburger mobile */
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .navbar__hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-light);
+      border-radius: 2px;
+      transition: all 300ms;
+    }
+    .navbar__hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .navbar__hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .navbar__hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Menu mobile */
+    .navbar__mobile {
+      display: none;
+      position: fixed;
+      top: 92px; /* topbar + navbar */
+      left: 0;
+      right: 0;
+      z-index: 98;
+      background: rgba(107,26,42,0.97);
+      backdrop-filter: blur(12px);
+      padding: 20px var(--padding-x) 28px;
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid rgba(184,146,74,0.2);
+    }
+    .navbar__mobile.is-open { display: flex; }
+    .navbar__mobile a {
+      font-family: var(--font-caps);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(245,237,228,0.8);
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(184,146,74,0.12);
+      transition: color 200ms;
+    }
+    .navbar__mobile a:last-child { border-bottom: none; }
+    .navbar__mobile a:hover { color: var(--gold); }
+    .navbar__mobile .navbar__cta {
+      margin-top: 16px;
+      text-align: center;
+      padding: 12px 18px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar__links { display: none; }
+      .navbar__cta { display: none; }
+      .navbar__hamburger { display: flex; }
+      .hero { padding-top: 92px; }
+    }
+
+    /* ═══════════════════════════════════════════
+       BOTÃO FLUTUANTE WHATSAPP
+    ═══════════════════════════════════════════ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 200;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 200ms var(--ease-smooth), box-shadow 200ms var(--ease-smooth);
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55), 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .whatsapp-float svg { width: 34px; height: 34px; }
+
+    /* ═══════════════════════════════════════════
+       ORNAMENTO SVG (inline)
+    ═══════════════════════════════════════════ */
+    .svg-ornamento { display: inline-block; }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVO
+    ═══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .sobre__grid { grid-template-columns: 400px 1fr; gap: 48px; }
+    }
+    @media (max-width: 900px) {
+      /* Sobre */
+      .sobre__grid { grid-template-columns: 1fr; gap: 48px; }
+      .sobre__foto-wrap { aspect-ratio: 3/4; max-height: 480px; max-width: 400px; margin: 0 auto; }
+      .sobre__badge-anos { bottom: -16px; right: -8px; width: 88px; height: 88px; }
+      .sobre__badge-num { font-size: 26px; }
+      /* Diferenciais */
+      .grid-3 { grid-template-columns: 1fr; gap: 24px; }
+      /* Processo */
+      .processo__grid { grid-template-columns: 1fr; gap: 40px; }
+      .processo__grid::before { display: none; }
+      /* Personalização */
+      .personalizacao__grid { grid-template-columns: 1fr 1fr; }
+      /* Footer */
+      .footer__grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+      .footer__social { align-items: center; }
+    }
+    @media (max-width: 768px) {
+      /* Hero */
+      .hero__ctas { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; max-width: 320px; }
+      /* Catálogo 2x2 → 1 col */
+      .grid-2x2 { grid-template-columns: 1fr; }
+      /* Galeria */
+      .galeria__grid { grid-template-columns: 1fr 1fr; }
+      .galeria__item--grande { grid-row: auto; grid-column: span 2; aspect-ratio: 16/9; }
+      .galeria__item--grande img, .galeria__item--grande .galeria__placeholder { min-height: auto; aspect-ratio: 16/9; }
+      .galeria__item--wide { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      /* Trajetória já coberta acima */
+      /* Personalização */
+      .personalizacao__grid { grid-template-columns: 1fr; }
+      /* Galeria */
+      .galeria__grid { grid-template-columns: 1fr; }
+      .galeria__item--grande { grid-column: auto; }
+      .galeria__item--wide { grid-column: auto; }
+    }
+    @media (max-width: 480px) {
+      .topbar { font-size: 10px; padding: 8px 16px; }
+      .topbar a { margin-left: 8px; }
+      .depoimento-card { padding: 24px 20px; }
+      /* Sobre foto mobile pequeno */
+      .sobre__foto-wrap { max-height: 380px; }
+      .sobre__badge-anos { width: 76px; height: 76px; bottom: -12px; right: -4px; }
+      .sobre__badge-num { font-size: 22px; }
+      .sobre__badge-texto { font-size: 8px; }
+      /* Footer */
+      .footer__nav a { font-size: 14px; padding: 8px 0; }
+      .footer__social-link { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Menu principal">
+    <a href="#hero" class="navbar__logo">
+      <img src="images/logo-delice.png" alt="Delicê" width="36" height="36">
+    </a>
+    <div class="navbar__links">
+      <a href="#sobre">Sobre</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#personalizacao">Personalização</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#faq">Dúvidas</a>
+    </div>
+    <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener" class="navbar__cta">Encomendar →</a>
+    <button class="navbar__hamburger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div class="navbar__mobile" id="mobile-menu">
+    <a href="#sobre">Sobre Byanca</a>
+    <a href="#trajetoria">Trajetória</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#personalizacao">Personalização</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#faq">Dúvidas</a>
+    <a href="https://instagram.com/delicebolosedoces" target="_blank" rel="noopener">Instagram @delicebolosedoces</a>
+    <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener" class="navbar__cta">Falar no WhatsApp →</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 0 — TOPBAR
+  ═══════════════════════════════════════════ -->
+  <div class="topbar" role="banner">
+    <svg class="svg-ornamento" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 0L4.8 3.2L8 4L4.8 4.8L4 8L3.2 4.8L0 4L3.2 3.2L4 0Z" fill="#B8924A"/>
+    </svg>
+    <span>Encomendas abertas · Barra Mansa, RJ</span>
+    <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener">Encomendar via WhatsApp →</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 1 — HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero" aria-label="Delicê Confeitaria Gourmet">
+
+    <!-- Background / Placeholder -->
+    <div class="hero__bg">
+      <div class="hero__bg-placeholder">
+        <span>hero-bolo-atmosfera.jpg</span>
+      </div>
+      <!-- Quando imagem estiver pronta:
+      <img src="images/hero-bolo-atmosfera.jpg" alt="Bolo artístico da Delicê Confeitaria em atmosfera de celebração" fetchpriority="high" loading="eager">
+      -->
+      <div class="hero__overlay"></div>
+    </div>
+
+    <!-- Ornamentos flutuantes -->
+    <div class="ornamento hero__ornamento-tr" aria-hidden="true">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 2C32 2 28 14 18 18C28 22 32 34 32 34C32 34 36 22 46 18C36 14 32 2 32 2Z" opacity="0.8"/>
+        <path d="M32 30C32 30 29 38 22 40C29 42 32 50 32 50C32 50 35 42 42 40C35 38 32 30 32 30Z" opacity="0.5"/>
+        <circle cx="32" cy="18" r="2" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="ornamento hero__ornamento-bl" aria-hidden="true">
+      <svg width="48" height="48" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 4C32 4 26 18 14 22C26 26 32 40 32 40C32 40 38 26 50 22C38 18 32 4 32 4Z" opacity="0.7"/>
+        <circle cx="32" cy="22" r="2.5" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="hero__content">
+      <div class="hero__logo">
+        <img src="images/logo-delice.png" alt="Delicê Confeitaria Gourmet" width="160" height="160">
+      </div>
+      <div class="hero__badge">
+        <span class="badge badge--on-dark">✦ Confeitaria Artesanal · Barra Mansa ✦</span>
+      </div>
+      <h1 class="heading-hero hero__title">
+        Cada encomenda é única<br>como o momento que ela celebra.
+      </h1>
+      <p class="hero__subtitle">
+        Doces criados com técnica, afeto e identidade. Para os momentos que merecem ser lembrados.
+      </p>
+      <div class="hero__ctas">
+        <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener" class="btn-primary">
+          Quero encomendar →
+        </a>
+        <a href="#catalogo" class="btn-ghost btn-ghost--light">
+          Ver catálogo
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 2 — TENSÃO / FRASE DE IMPACTO
+  ═══════════════════════════════════════════ -->
+  <section class="section section--dark tensao" aria-label="Padrão Delicê">
+    <div class="container container--narrow">
+      <div class="divider-ornamental reveal" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 1L11.8 8.2L19 10L11.8 11.8L10 19L8.2 11.8L1 10L8.2 8.2L10 1Z" fill="#B8924A"/>
+        </svg>
+      </div>
+
+      <p class="tensao__headline reveal">
+        Organizar um momento especial merece uma confeitaria que trate cada encomenda com o mesmo cuidado que você colocou no planejamento.
+      </p>
+
+      <p class="tensao__virada reveal">
+        É exatamente isso que a Delicê faz.
+      </p>
+
+      <div class="divider-ornamental reveal" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 1L11.8 8.2L19 10L11.8 11.8L10 19L8.2 11.8L1 10L8.2 8.2L10 1Z" fill="#B8924A"/>
+        </svg>
+      </div>
+
+      <p class="label-caps tensao__label reveal">O padrão Delicê</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 5 — CATÁLOGO PREVIEW
+  ═══════════════════════════════════════════ -->
+  <section class="section section--cream catalogo" id="catalogo" aria-label="Catálogo Delicê">
+    <div class="container">
+      <div class="catalogo__header">
+        <div class="catalogo__badge">
+          <span class="badge">✦ Nosso Catálogo ✦</span>
+        </div>
+        <h2 class="heading-section catalogo__titulo">Feito para o seu momento</h2>
+      </div>
+
+      <div class="grid-2x2">
+
+        <!-- Card 1 -->
+        <article class="card-produto reveal">
+          <!-- <img class="card-produto__image" src="images/catalogo-bolos-artisticos.jpg" alt="Bolo artístico personalizado da Delicê Confeitaria em Barra Mansa"> -->
+          <div class="card-produto__placeholder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="4" y="10" width="24" height="16" rx="2" stroke="#9A7A7A" stroke-width="1.5" fill="none"/>
+              <path d="M10 10C10 7.2 16 3 16 3C16 3 22 7.2 22 10" stroke="#9A7A7A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>catalogo-bolos-artisticos.jpg</span>
+          </div>
+          <div class="card-produto__body">
+            <p class="label-caps card-produto__label">Bolos Artísticos</p>
+            <h3 class="card-produto__nome">Para os grandes momentos</h3>
+            <p class="card-produto__descricao">Casamentos, aniversários, batizados — bolos personalizados que se tornam parte da memória do evento.</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card-produto reveal reveal-delay-1">
+          <!-- <img class="card-produto__image" src="images/catalogo-doces-bombons.jpg" alt="Bombons e doces gourmet artesanais da Delicê Confeitaria"> -->
+          <div class="card-produto__placeholder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="16" r="11" stroke="#9A7A7A" stroke-width="1.5" fill="none"/>
+              <path d="M11 16C11 13.2 13.2 11 16 11C18.8 11 21 13.2 21 16" stroke="#9A7A7A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>catalogo-doces-bombons.jpg</span>
+          </div>
+          <div class="card-produto__body">
+            <p class="label-caps card-produto__label">Doces &amp; Bombons</p>
+            <h3 class="card-produto__nome">Presentes que falam por você</h3>
+            <p class="card-produto__descricao">Caixas de bombons artesanais e doces finos para presentear com elegância em qualquer ocasião.</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card-produto reveal reveal-delay-2">
+          <!-- <img class="card-produto__image" src="images/catalogo-sobremesas-taca.jpg" alt="Sobremesas na taça da Delicê Confeitaria artesanal Barra Mansa"> -->
+          <div class="card-produto__placeholder">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 6H24L21 16H11L8 6Z" stroke="#9A7A7A" stroke-width="1.5" fill="none"/>
+              <path d="M16 16V26" stroke="#9A7A7A" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M11 26H21" stroke="#9A7A7A" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>catalogo-sobremesas-taca.jpg</span>
+          </div>
+          <div class="card-produto__body">
+            <p class="label-caps card-produto__label">Sobremesas na Taça</p>
+            <h3 class="card-produto__nome">Delicadeza em formato de porção</h3>
+            <p class="card-produto__descricao">Mousses, brigadeiros gourmet e sobremesas individuais — perfeitas para eventos e mesa de doces.</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card-produto reveal reveal-delay-3">
+          <!-- <img class="card-produto__image" src="images/catalogo-servicos-eventos.jpg" alt="Brunch e coffee break artesanal da Delicê Confeitaria Barra Mansa"> -->
+          <div class="card-produto__placeholder">
+            <iconify-icon icon="solar:cup-hot-outline" style="font-size:32px; color:#9A7A7A;"></iconify-icon>
+            <span>catalogo-servicos-eventos.jpg</span>
+          </div>
+          <div class="card-produto__body">
+            <p class="label-caps card-produto__label">Serviços & Eventos</p>
+            <h3 class="card-produto__nome">Para cada ocasião</h3>
+            <p class="card-produto__descricao">Brunch, coffee break, cestas, compotas, pastas e mesas de doces para aniversários, casamentos e festas em geral.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="catalogo__cta reveal">
+        <a href="cardapio.html" class="btn-primary">
+          Ver cardápio completo →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 5B — PERSONALIZAÇÃO
+  ═══════════════════════════════════════════ -->
+  <section class="section personalizacao" id="personalizacao" aria-label="Personalização de encomendas">
+    <div class="container">
+      <div class="personalizacao__header reveal">
+        <span class="badge">✦ Personalização ✦</span>
+        <h2 class="heading-section personalizacao__titulo">Cada detalhe, do seu jeito</h2>
+        <p class="personalizacao__subtitulo">Além do sabor, a Byanca cuida da apresentação. Escolha os acabamentos que vão tornar sua encomenda ainda mais especial.</p>
+      </div>
+
+      <div class="personalizacao__grid">
+        <div class="personalizacao__item reveal">
+          <div class="personalizacao__icone">
+            <iconify-icon icon="solar:confetti-minimalistic-outline"></iconify-icon>
+          </div>
+          <h3 class="personalizacao__nome">Placas de chocolate</h3>
+          <p class="personalizacao__desc">Com confete, raspas de chocolate ou fruta — elegantes e personalizadas.</p>
+        </div>
+        <div class="personalizacao__item reveal reveal-delay-1">
+          <div class="personalizacao__icone">
+            <iconify-icon icon="ph:flower-tulip"></iconify-icon>
+          </div>
+          <h3 class="personalizacao__nome">Flores naturais</h3>
+          <p class="personalizacao__desc">Decoração floral para um acabamento sofisticado e atemporal.</p>
+        </div>
+        <div class="personalizacao__item reveal reveal-delay-2">
+          <div class="personalizacao__icone">
+            <iconify-icon icon="solar:stars-minimalistic-outline"></iconify-icon>
+          </div>
+          <h3 class="personalizacao__nome">Chantilly com brilho</h3>
+          <p class="personalizacao__desc">Acabamento delicado com efeito luminoso para celebrações especiais.</p>
+        </div>
+        <div class="personalizacao__item reveal reveal-delay-1">
+          <div class="personalizacao__icone">
+            <iconify-icon icon="solar:layers-minimalistic-outline"></iconify-icon>
+          </div>
+          <h3 class="personalizacao__nome">Praliné</h3>
+          <p class="personalizacao__desc">Crocante de nozes para textura e sabor que surpreendem.</p>
+        </div>
+        <div class="personalizacao__item reveal reveal-delay-2">
+          <div class="personalizacao__icone">
+            <iconify-icon icon="solar:heart-shine-outline"></iconify-icon>
+          </div>
+          <h3 class="personalizacao__nome">Docinhos decorativos</h3>
+          <p class="personalizacao__desc">Brigadeiros e doces finos como parte da decoração do bolo.</p>
+        </div>
+        <div class="personalizacao__item reveal reveal-delay-3">
+          <div class="personalizacao__icone">
+            <iconify-icon icon="solar:leaf-outline"></iconify-icon>
+          </div>
+          <h3 class="personalizacao__nome">Frutas frescas</h3>
+          <p class="personalizacao__desc">Morangos, frutas vermelhas e tropicais para um toque natural e colorido.</p>
+        </div>
+      </div>
+
+      <p class="personalizacao__nota reveal">Decorações marcadas com ✦ têm valor diferenciado. Consulte no orçamento.</p>
+
+      <div class="personalizacao__cta reveal">
+        <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20montar%20uma%20encomenda%20personalizada." target="_blank" rel="noopener" class="btn-primary">
+          Montar minha encomenda →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 3 — SOBRE BYANCA
+  ═══════════════════════════════════════════ -->
+  <section class="section section--cream sobre" id="sobre" aria-label="Sobre Byanca Costa">
+    <div class="container">
+      <div class="sobre__grid">
+
+        <!-- Foto -->
+        <div class="sobre__foto-wrap reveal-left">
+          <img src="images/byanca-retrato.jpeg" alt="Byanca Costa, confeiteira artesanal fundadora da Delicê em Barra Mansa, RJ" fetchpriority="high">
+          <div class="sobre__foto-overlay" aria-hidden="true"></div>
+          <span class="sobre__nome-foto" aria-hidden="true">Byanca Costa</span>
+          <div class="sobre__badge-anos" aria-label="+5 anos de paixão">
+            <span class="sobre__badge-num">+5</span>
+            <span class="sobre__badge-texto">anos de<br>paixão</span>
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div class="reveal-right">
+          <div class="sobre__badge">
+            <span class="badge">A confeiteira por trás da Delicê</span>
+          </div>
+          <h2 class="heading-section sobre__nome">Byanca Costa</h2>
+          <div class="sobre__bio body-text">
+            <p>Meu nome é Byanca Costa, e a Delicê nasceu de algo que sempre esteve presente na minha vida: o prazer de cuidar das pessoas.</p>
+            <p>Sempre acreditei que os pequenos gestos têm um significado especial. Receber alguém em casa, preparar algo gostoso, participar de momentos importantes e ver a felicidade estampada no rosto de quem amamos são coisas que sempre fizeram sentido para mim.</p>
+            <p>Foi na cozinha que encontrei uma forma de transformar esse cuidado em algo ainda maior. Mais do que receitas, descobri uma maneira de criar memórias, celebrar histórias e tornar momentos especiais ainda mais doces. Porque, para mim, confeitaria nunca foi apenas sobre doces. Sempre foi sobre pessoas.</p>
+          </div>
+          <p class="sobre__destaque">"Confeitaria nunca foi apenas sobre doces. Sempre foi sobre pessoas."</p>
+          <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener" class="btn-ghost">
+            Falar com Byanca →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 3B — TRAJETÓRIA
+  ═══════════════════════════════════════════ -->
+  <section class="section section--cream trajetoria" id="trajetoria" aria-label="Nossa trajetória">
+    <div class="container container--narrow">
+      <div class="trajetoria__header reveal">
+        <span class="badge">✦ Nossa Trajetória ✦</span>
+        <h2 class="heading-section trajetoria__titulo">A história da Delicê</h2>
+        <p class="trajetoria__subtitulo">Nascida do amor pelos doces e do desejo de tornar cada celebração inesquecível.</p>
+      </div>
+
+      <div class="trajetoria__linha">
+
+        <div class="trajetoria__item reveal">
+          <div class="trajetoria__ano">2019</div>
+          <div class="trajetoria__linha-col">
+            <div class="trajetoria__dot"></div>
+            <div class="trajetoria__fio"></div>
+          </div>
+          <div class="trajetoria__conteudo">
+            <p class="trajetoria__label">O início</p>
+            <h3 class="trajetoria__nome">O sonho que virou realidade</h3>
+            <p class="trajetoria__texto">A Delicê começou de forma simples, movida pelo prazer de fazer algo especial para as pessoas que eu amo. O que começou entre receitas, celebrações em família e o desejo de agradar quem estava ao meu redor foi, aos poucos, conquistando novos espaços.</p>
+            <blockquote class="trajetoria__quote">"Os elogios se transformaram em pedidos, os pedidos em indicações e, sem que eu percebesse, uma história estava começando a ser construída."</blockquote>
+          </div>
+        </div>
+
+        <div class="trajetoria__item reveal">
+          <div class="trajetoria__ano"></div>
+          <div class="trajetoria__linha-col">
+            <div class="trajetoria__dot"></div>
+            <div class="trajetoria__fio"></div>
+          </div>
+          <div class="trajetoria__conteudo">
+            <p class="trajetoria__label">O propósito da marca</p>
+            <h3 class="trajetoria__nome">Mais do que doces</h3>
+            <p class="trajetoria__texto">A Delicê nasceu com um propósito claro: criar momentos. Não vendemos apenas doces — entregamos experiências, emoções e memórias. Cada encomenda é tratada com exclusividade, como se fosse a única. Porque para quem recebe, ela é.</p>
+          </div>
+        </div>
+
+        <div class="trajetoria__item reveal">
+          <div class="trajetoria__ano"></div>
+          <div class="trajetoria__linha-col">
+            <div class="trajetoria__dot"></div>
+            <div class="trajetoria__fio"></div>
+          </div>
+          <div class="trajetoria__conteudo">
+            <p class="trajetoria__label">O cuidado artesanal</p>
+            <h3 class="trajetoria__nome">Raízes que cresceram com amor</h3>
+            <p class="trajetoria__texto">Com a chegada da maternidade, a Delicê ganhou ainda mais significado. Além de fazer o que amava, encontrei na confeitaria uma forma de conciliar a presença na criação da minha filha com a oportunidade de contribuir para a renda da família. Foi nesse período que a marca cresceu, fortaleceu suas raízes e passou a fazer parte de momentos especiais de muitas pessoas.</p>
+            <p class="trajetoria__texto" style="margin-top:12px;">Hoje, a Delicê é resultado de uma trajetória construída com carinho, dedicação e muito amor pelo que faço — uma marca que nasceu do cuidado com o outro e que continua levando afeto, sabor e significado para cada celebração.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 4 — DIFERENCIAIS
+  ═══════════════════════════════════════════ -->
+  <section class="section section--dark diferenciais" aria-label="Diferenciais Delicê">
+    <div class="container">
+      <h2 class="heading-section diferenciais__titulo reveal">O que faz cada Delicê ser única</h2>
+
+      <div class="grid-3">
+
+        <div class="diferenciais__item reveal">
+          <iconify-icon class="diferenciais__icon" icon="solar:heart-outline" aria-hidden="true"></iconify-icon>
+          <h3 class="diferenciais__nome">Ingredientes selecionados</h3>
+          <p class="diferenciais__desc">Cada receita é feita com ingredientes escolhidos a dedo. Sem atalhos, sem cortar custos onde importa.</p>
+        </div>
+
+        <div class="diferenciais__item reveal reveal-delay-1">
+          <iconify-icon class="diferenciais__icon" icon="solar:pen-new-square-outline" aria-hidden="true"></iconify-icon>
+          <h3 class="diferenciais__nome">Cada detalhe personalizado</h3>
+          <p class="diferenciais__desc">O bolo é criado para o SEU momento. Sabores, decoração, tamanho — tudo pensado com você, para você.</p>
+        </div>
+
+        <div class="diferenciais__item reveal reveal-delay-2">
+          <iconify-icon class="diferenciais__icon" icon="solar:clock-circle-outline" aria-hidden="true"></iconify-icon>
+          <h3 class="diferenciais__nome">Entrega no prazo, sempre</h3>
+          <p class="diferenciais__desc">Pontualidade é respeito. Seu evento tem data e hora — e a Delicê leva isso tão a sério quanto você.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 6 — DEPOIMENTOS
+  ═══════════════════════════════════════════ -->
+  <section class="section section--dark depoimentos" id="depoimentos" aria-label="Depoimentos sobre a Delicê">
+    <div class="container container--narrow">
+      <div class="depoimentos__badge">
+        <span class="badge badge--on-dark">✦ O que dizem sobre a Delicê ✦</span>
+      </div>
+
+      <!-- Depoimentos reais (aguardando Byanca) -->
+      <div class="depoimento-placeholder reveal">
+        Depoimentos reais em breve — aguardando confirmação da Byanca.
+      </div>
+
+      <!--
+      Descomente e preencha quando Byanca enviar os depoimentos:
+
+      <article class="depoimento-card reveal">
+        <span class="depoimento-card__aspas" aria-hidden="true">"</span>
+        <p class="depoimento-card__texto">
+          [Texto do depoimento aqui]
+        </p>
+        <p class="depoimento-card__autora">[Nome da cliente] · [Ocasião]</p>
+      </article>
+
+      <article class="depoimento-card reveal reveal-delay-1">
+        <span class="depoimento-card__aspas" aria-hidden="true">"</span>
+        <p class="depoimento-card__texto">
+          [Texto do depoimento aqui]
+        </p>
+        <p class="depoimento-card__autora">[Nome da cliente] · [Ocasião]</p>
+      </article>
+      -->
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 7 — COMO FUNCIONA (PROCESSO)
+  ═══════════════════════════════════════════ -->
+  <section class="section section--cream processo" id="como-funciona" aria-label="Como funciona a encomenda">
+    <div class="container">
+      <div class="processo__header">
+        <div class="processo__badge">
+          <span class="badge">✦ Como funciona ✦</span>
+        </div>
+        <h2 class="heading-section processo__titulo">Encomendar é simples</h2>
+      </div>
+
+      <div class="processo__grid">
+
+        <div class="processo__passo reveal">
+          <div class="processo__num" aria-hidden="true">01</div>
+          <iconify-icon class="processo__icon" icon="solar:calendar-outline" aria-hidden="true"></iconify-icon>
+          <h3 class="processo__nome">Escolha seu momento</h3>
+          <p class="processo__desc">Pense na ocasião, no número de pessoas e em qual produto combina mais com o seu evento.</p>
+        </div>
+
+        <div class="processo__passo reveal reveal-delay-1">
+          <div class="processo__num" aria-hidden="true">02</div>
+          <iconify-icon class="processo__icon" icon="solar:chat-round-like-outline" aria-hidden="true"></iconify-icon>
+          <h3 class="processo__nome">Envie sua encomenda</h3>
+          <p class="processo__desc">Entre em contato pelo WhatsApp com os detalhes do pedido. A Byanca vai te orientar em tudo.</p>
+          <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener" class="processo__link">
+            Falar no WhatsApp →
+          </a>
+        </div>
+
+        <div class="processo__passo reveal reveal-delay-2">
+          <div class="processo__num" aria-hidden="true">03</div>
+          <iconify-icon class="processo__icon" icon="solar:box-outline" aria-hidden="true"></iconify-icon>
+          <h3 class="processo__nome">Receba com perfeição</h3>
+          <p class="processo__desc">Seu pedido chegará no prazo combinado, com a apresentação e o cuidado que o seu momento merece.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 8 — GALERIA
+  ═══════════════════════════════════════════ -->
+  <section class="section section--cream galeria" id="galeria" aria-label="Galeria Delicê">
+    <div class="container">
+      <div class="galeria__header">
+        <h2 class="heading-section galeria__titulo reveal">Cada detalhe é intencional</h2>
+      </div>
+
+      <div class="galeria__grid">
+
+        <!-- Grande vertical (row span 2) -->
+        <div class="galeria__item galeria__item--grande reveal">
+          <!-- <img src="images/detalhe-decoracao.jpg" alt="Detalhe de decoração artesanal em bolo da Delicê — flores de açúcar e dourado feitos à mão" loading="lazy" decoding="async"> -->
+          <div class="galeria__placeholder">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="14" cy="14" r="12" stroke="#9A7A7A" stroke-width="1.5" fill="none"/>
+              <path d="M14 6L14.9 9.8L18.5 10L16.4 12.5L17.5 16L14 14L10.5 16L11.6 12.5L9.5 10L13.1 9.8L14 6Z" fill="#9A7A7A" opacity="0.4"/>
+            </svg>
+            <span>detalhe-decoracao.jpg</span>
+          </div>
+          <div class="galeria__hover" aria-hidden="true">
+            <iconify-icon icon="solar:magnifer-outline"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Quadrada sup-dir -->
+        <div class="galeria__item galeria__item--quadrado reveal reveal-delay-1">
+          <!-- <img src="images/detalhe-corte.jpg" alt="Corte de bolo Delicê mostrando camadas de recheio artesanal" loading="lazy" decoding="async"> -->
+          <div class="galeria__placeholder">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="4" y="8" width="20" height="14" rx="2" stroke="#9A7A7A" stroke-width="1.5" fill="none"/>
+              <path d="M4 12H24" stroke="#9A7A7A" stroke-width="1" stroke-dasharray="2 2"/>
+              <path d="M4 16H24" stroke="#9A7A7A" stroke-width="1" stroke-dasharray="2 2"/>
+            </svg>
+            <span>detalhe-corte.jpg</span>
+          </div>
+          <div class="galeria__hover" aria-hidden="true">
+            <iconify-icon icon="solar:magnifer-outline"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Wide inf-dir col 3 -->
+        <div class="galeria__item reveal reveal-delay-1" style="aspect-ratio:16/9; overflow:hidden; border-radius:12px;">
+          <!-- <img src="images/ambiente-mesa.jpg" alt="Mesa de evento com bolo e doces artesanais da Delicê Confeitaria" loading="lazy" decoding="async"> -->
+          <div class="galeria__placeholder" style="aspect-ratio:16/9; min-height:unset;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="3" y="7" width="22" height="14" rx="2" stroke="#9A7A7A" stroke-width="1.5" fill="none"/>
+              <path d="M3 21H25" stroke="#9A7A7A" stroke-width="1.5"/>
+            </svg>
+            <span>ambiente-mesa.jpg</span>
+          </div>
+          <div class="galeria__hover" aria-hidden="true">
+            <iconify-icon icon="solar:magnifer-outline"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Horizontal base (span 2 cols) -->
+        <div class="galeria__item galeria__item--wide reveal reveal-delay-2">
+          <!-- <img src="images/bastidores-maos.jpg" alt="Mãos de Byanca decorando bolo artesanal — bastidores da Delicê Confeitaria" loading="lazy" decoding="async"> -->
+          <div class="galeria__placeholder" style="aspect-ratio:16/9; min-height:unset;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 20C8 20 10 14 14 12C18 10 20 8 20 8" stroke="#9A7A7A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M6 22C6 22 8 16 12 14" stroke="#9A7A7A" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+            <span>bastidores-maos.jpg</span>
+          </div>
+          <div class="galeria__hover" aria-hidden="true">
+            <iconify-icon icon="solar:magnifer-outline"></iconify-icon>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 9 — FAQ
+  ═══════════════════════════════════════════ -->
+  <section class="section section--dark faq" id="faq" aria-label="Dúvidas frequentes">
+    <div class="container container--faq">
+      <div class="faq__badge">
+        <span class="badge badge--on-dark">Dúvidas frequentes</span>
+      </div>
+      <h2 class="heading-section faq__titulo reveal">Tudo o que você precisa saber</h2>
+
+      <div class="faq__lista" role="list">
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__pergunta" aria-expanded="false">
+            <span>Qual o prazo mínimo para encomendar?</span>
+            <iconify-icon icon="solar:alt-arrow-down-outline" aria-hidden="true"></iconify-icon>
+          </button>
+          <div class="faq__resposta" role="region">
+            <p class="faq__resposta-inner">
+              <!-- Aguardando Byanca informar o prazo mínimo -->
+              Entre em contato pelo WhatsApp para verificar a disponibilidade para a sua data. Recomendamos encomendar com antecedência para garantir o melhor atendimento.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__pergunta" aria-expanded="false">
+            <span>Vocês entregam em Barra Mansa e região?</span>
+            <iconify-icon icon="solar:alt-arrow-down-outline" aria-hidden="true"></iconify-icon>
+          </button>
+          <div class="faq__resposta" role="region">
+            <p class="faq__resposta-inner">
+              <!-- Aguardando Byanca informar cidades atendidas -->
+              Atendemos Barra Mansa e cidades da região. Entre em contato pelo WhatsApp para confirmar a sua localidade e verificar as condições de entrega.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__pergunta" aria-expanded="false">
+            <span>Como funciona o pagamento e o sinal?</span>
+            <iconify-icon icon="solar:alt-arrow-down-outline" aria-hidden="true"></iconify-icon>
+          </button>
+          <div class="faq__resposta" role="region">
+            <p class="faq__resposta-inner">
+              <!-- Aguardando Byanca informar política de sinal/pagamento -->
+              As condições de pagamento são combinadas diretamente no WhatsApp. Entre em contato para receber todas as informações sobre sinal e formas de pagamento disponíveis.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__pergunta" aria-expanded="false">
+            <span>Posso personalizar completamente o bolo?</span>
+            <iconify-icon icon="solar:alt-arrow-down-outline" aria-hidden="true"></iconify-icon>
+          </button>
+          <div class="faq__resposta" role="region">
+            <p class="faq__resposta-inner">
+              Sim! Cada bolo é criado de forma personalizada. Você pode escolher sabores, recheios, decoração e tema. A Byanca vai te orientar em cada detalhe para garantir que o resultado seja exatamente o que você imaginou.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__pergunta" aria-expanded="false">
+            <span>E se eu não souber exatamente o que quero?</span>
+            <iconify-icon icon="solar:alt-arrow-down-outline" aria-hidden="true"></iconify-icon>
+          </button>
+          <div class="faq__resposta" role="region">
+            <p class="faq__resposta-inner">
+              Fique tranquila! É muito comum não ter tudo definido. Manda uma mensagem no WhatsApp contando sobre o evento — a ocasião, o número de pessoas, o clima que você quer criar — e a Byanca te ajuda a chegar no bolo perfeito.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 10 — CTA FINAL
+  ═══════════════════════════════════════════ -->
+  <section class="section cta-final" id="encomenda" aria-label="Encomendar">
+    <div class="container container--xs" style="text-align:center;">
+
+      <svg class="cta-final__ornamento" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M24 3L26.8 13.2L37 16L26.8 18.8L24 29L21.2 18.8L11 16L21.2 13.2L24 3Z" fill="#B8924A"/>
+        <path d="M24 26C24 26 22 32 17 34C22 36 24 42 24 42C24 42 26 36 31 34C26 32 24 26 24 26Z" fill="#B8924A" opacity="0.5"/>
+        <circle cx="12" cy="8" r="2" fill="#B8924A" opacity="0.3"/>
+        <circle cx="36" cy="10" r="1.5" fill="#B8924A" opacity="0.3"/>
+        <circle cx="10" cy="36" r="1.5" fill="#B8924A" opacity="0.25"/>
+        <circle cx="38" cy="34" r="2" fill="#B8924A" opacity="0.25"/>
+      </svg>
+
+      <h2 class="heading-section cta-final__titulo reveal">Pronta para criar juntas?</h2>
+
+      <p class="cta-final__body reveal">
+        Entre em contato pelo WhatsApp e vamos criar juntas o bolo perfeito para o seu momento.
+      </p>
+
+      <div class="reveal">
+        <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener" class="btn-primary btn-primary--lg" style="display:inline-flex;">
+          Falar com Byanca no WhatsApp →
+        </a>
+      </div>
+
+      <p class="cta-final__micro reveal">Resposta em até 24h · Barra Mansa, RJ</p>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       DOBRA 11 — FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Marca -->
+        <div class="footer__marca">
+          <img src="images/logo-delice.png" alt="Delicê Confeitaria Gourmet" width="80" height="80" style="margin-bottom:10px; mix-blend-mode: screen; filter: brightness(1.15) contrast(0.85); opacity:0.9;">
+          <p class="footer__subtitulo">Confeitaria Artesanal · Barra Mansa, RJ</p>
+        </div>
+
+        <!-- Navegação -->
+        <nav class="footer__nav" aria-label="Links da página">
+          <p class="footer__nav-titulo">Navegação</p>
+          <a href="#sobre">Sobre Byanca</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#faq">Dúvidas</a>
+          <a href="#encomenda">Encomendar</a>
+        </nav>
+
+        <!-- Social -->
+        <div>
+          <p class="footer__nav-titulo">Redes sociais</p>
+          <div class="footer__social">
+            <a href="https://instagram.com/delicebolosedoces" target="_blank" rel="noopener" aria-label="Instagram da Delicê" class="footer__social-link">
+              <iconify-icon icon="solar:instagram-outline"></iconify-icon>
+              <span>@delicebolosedoces</span>
+            </a>
+            <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener" aria-label="WhatsApp da Delicê" class="footer__social-link">
+              <iconify-icon icon="solar:phone-outline"></iconify-icon>
+              <span>(24) 99312-1791</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__divider" aria-hidden="true"></div>
+      <p class="footer__servicos">Também atendemos: brunch · coffee break · cestas · compotas · pastas · mesas de doces · aniversários e festas em geral. <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Delicê." target="_blank" rel="noopener">Consulte.</a></p>
+      <div class="footer__divider" aria-hidden="true"></div>
+      <p class="footer__copy">© 2024 Delicê Confeitaria · Byanca Costa · Barra Mansa, RJ</p>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       BOTÃO FLUTUANTE WHATSAPP
+  ═══════════════════════════════════════════ -->
+  <a href="https://wa.me/5524993121791?text=Olá%2C%20Byanca!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2C8.268 2 2 8.268 2 16C2 18.66 2.764 21.143 4.09 23.247L2.1 29.9L9.02 27.946C11.05 29.124 13.443 29.8 16 29.8C23.732 29.8 30 23.532 30 15.8C30 8.268 23.732 2 16 2Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M22.003 19.274C21.71 19.122 20.254 18.411 19.987 18.313C19.72 18.216 19.526 18.167 19.331 18.46C19.137 18.752 18.578 19.413 18.407 19.608C18.236 19.803 18.065 19.827 17.772 19.681C17.479 19.535 16.527 19.228 15.4 18.222C14.517 17.432 13.93 16.455 13.759 16.162C13.588 15.869 13.742 15.711 13.888 15.566C14.019 15.436 14.181 15.224 14.327 15.053C14.473 14.882 14.522 14.76 14.619 14.565C14.717 14.37 14.668 14.199 14.595 14.053C14.522 13.907 13.937 12.449 13.694 11.864C13.458 11.294 13.218 11.372 13.04 11.362L12.481 11.352C12.287 11.352 11.969 11.425 11.702 11.718C11.435 12.011 10.679 12.722 10.679 14.18C10.679 15.638 11.726 17.047 11.872 17.242C12.018 17.437 13.927 20.335 16.803 21.622C17.494 21.926 18.032 22.107 18.451 22.242C19.145 22.463 19.777 22.432 20.277 22.357C20.835 22.274 21.994 21.646 22.236 20.959C22.479 20.272 22.479 19.681 22.406 19.559C22.333 19.437 22.139 19.364 21.846 19.218L22.003 19.274Z" fill="#25D366"/>
+    </svg>
+  </a>
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════ -->
+  <script>
+    // ── Hamburger menu ────────────────────────
+    const hamburger = document.querySelector('.navbar__hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('is-open');
+      hamburger.classList.toggle('is-open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    // Fechar ao clicar num link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        hamburger.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    // ── Scroll Reveal ──────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // ── FAQ Accordion ──────────────────────────
+    document.querySelectorAll('.faq__pergunta').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq__item');
+        const isOpen = item.classList.contains('is-open');
+
+        // Fechar todos
+        document.querySelectorAll('.faq__item.is-open').forEach(openItem => {
+          openItem.classList.remove('is-open');
+          openItem.querySelector('.faq__pergunta').setAttribute('aria-expanded', 'false');
+        });
+
+        // Abrir se estava fechado
+        if (!isOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ── CTA Pulse on enter viewport ────────────
+    const ctaBtn = document.querySelector('.cta-final .btn-primary');
+    if (ctaBtn) {
+      const ctaObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.animation = 'pulse-cta 0.6s ease-out';
+              setTimeout(() => { entry.target.style.animation = ''; }, 700);
+            }, 800);
+            ctaObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      ctaObserver.observe(ctaBtn);
+    }
+
+    // ── Smooth scroll para âncoras ─────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const topbarH = document.querySelector('.topbar')?.offsetHeight || 40;
+          const y = target.getBoundingClientRect().top + window.scrollY - topbarH - 8;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
